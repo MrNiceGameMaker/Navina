@@ -13,9 +13,12 @@ const List<String> mockDocuments = [
 ];
 
 const List<String> mockStaff = [
-  'Liat (HR)',
-  'Yossi (IT)',
-  'Michal (CEO)',
+  'Jordan (HR)',
+  'Alex (IT)',
+  'Morgan (CEO)',
+  'Sam (Finance)',
+  'Casey (Operations)',
+  'Riley (Legal)',
 ];
 
 const List<String> mockInventory = [

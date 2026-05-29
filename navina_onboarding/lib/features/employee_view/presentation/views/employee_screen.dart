@@ -61,7 +61,7 @@ class EmployeeScreen extends ConsumerWidget {
             isScrollControlled: true,
             backgroundColor: Colors.transparent,
             shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.zero,
+              borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
             ),
             builder: (_) => AiChatBottomSheet(employeeId: employeeId),
           );
@@ -70,7 +70,7 @@ class EmployeeScreen extends ConsumerWidget {
         foregroundColor: Colors.white,
         elevation: 0,
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.zero,
+          borderRadius: BorderRadius.all(Radius.circular(16)),
         ),
         child: const Icon(Icons.chat_outlined),
       ),
@@ -241,13 +241,13 @@ class _MeetingRow extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.zero,
+        borderRadius: BorderRadius.circular(16),
         border: Border.all(color: _blue, width: 1),
         boxShadow: [
           BoxShadow(
-            color: _blue.withValues(alpha: 0.06),
-            blurRadius: 4,
-            offset: const Offset(0, 2),
+            color: _blue.withValues(alpha: 0.08),
+            blurRadius: 8,
+            offset: const Offset(0, 3),
           ),
         ],
       ),
@@ -257,7 +257,12 @@ class _MeetingRow extends StatelessWidget {
           children: [
             Container(
               width: 6,
-              color: task.isCompleted ? _equipmentDone : _blue,
+              decoration: BoxDecoration(
+                color: task.isCompleted ? _equipmentDone : _blue,
+                borderRadius: const BorderRadius.horizontal(
+                  left: Radius.circular(16),
+                ),
+              ),
             ),
             Checkbox(
               value: task.isCompleted,
@@ -265,7 +270,7 @@ class _MeetingRow extends StatelessWidget {
               checkColor: Colors.white,
               side: const BorderSide(color: _blue, width: 1.5),
               shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.zero,
+                borderRadius: BorderRadius.all(Radius.circular(4)),
               ),
               onChanged: task.id == null
                   ? null
@@ -361,16 +366,16 @@ class _TaskRow extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.zero,
+        borderRadius: BorderRadius.circular(16),
         border: Border.all(
           color: borderColor,
           width: isEquipment ? 2 : 1,
         ),
         boxShadow: [
           BoxShadow(
-            color: borderColor.withValues(alpha: 0.08),
-            blurRadius: 6,
-            offset: const Offset(0, 2),
+            color: borderColor.withValues(alpha: 0.10),
+            blurRadius: 8,
+            offset: const Offset(0, 3),
           ),
         ],
       ),
@@ -381,7 +386,12 @@ class _TaskRow extends StatelessWidget {
             if (isEquipment)
               Container(
                 width: 6,
-                color: equipmentColor,
+                decoration: BoxDecoration(
+                  color: equipmentColor,
+                  borderRadius: const BorderRadius.horizontal(
+                    left: Radius.circular(16),
+                  ),
+                ),
               ),
             Checkbox(
               value: task.isCompleted,
@@ -426,7 +436,7 @@ class _TaskRow extends StatelessWidget {
                       ),
                       decoration: BoxDecoration(
                         color: isEquipment ? equipmentColor : _blueLight,
-                        borderRadius: BorderRadius.zero,
+                        borderRadius: BorderRadius.circular(20),
                       ),
                       child: Text(
                         task.category.toUpperCase(),

@@ -1,20 +1,15 @@
-# Phase 13: Employee Screen Splitting (Tasks & Meetings)
+# Phase 14: Generate Project Documentation (README.md)
 
 - [ ] Ensure you are inside the `navina_onboarding` directory.
-- [ ] Open `lib/features/employee_view/presentation/views/employee_screen.dart`.
-- [ ] In the `data` state of `employeeTasksNotifierProvider`, split the tasks list into two separate lists:
-  - `final List<OnboardingTask> meetingTasks = tasks.where((t) => t.category == 'Meeting').toList();`
-  - `final List<OnboardingTask> actionTasks = tasks.where((t) => t.category != 'Meeting').toList();`
-- [ ] Sort `meetingTasks` chronologically by `scheduledAt`. Safely handle null dates by putting them at the end.
-- [ ] Update the UI body to use a `SingleChildScrollView` containing a `Column` with two distinct sections:
-  1. **My Schedule (Meetings)**:
-     - Title: "My Schedule" (geometric styling, `headlineMedium` or similar).
-     - Display the `meetingTasks`.
-     - Render each meeting as a flat, bordered tile. Include the task title, `scheduledAt` (formatted readably: e.g., "DD/MM/YYYY HH:MM"), and `assignedStaff`. Include the completion checkbox.
-  2. **My Action Items (Documents & Equipment)**:
-     - Title: "My Action Items".
-     - Display the `actionTasks` using the existing `_TaskRow` logic. Ensure the Red/Green Equipment logic (`t.category == 'Equipment'`) remains intact.
-- [ ] Ensure flat, zero-elevation UI rules (`BorderRadius.zero`, strict Corporate Blue / White / Black palette) are strictly enforced across the new sections.
-- [ ] Run `flutter analyze` to ensure zero errors.
-- [ ] STRICT REQUIREMENT: Absolutely ZERO `//` or `/* */` comments allowed.
-- [ ] LIVE FIELD TEST: Use the AGI Browser (`/browser`) to hit the local server. Click an employee card that has both tasks and meetings, and visually confirm the new two-section split layout renders correctly without overflow.
+- [ ] Create a highly professional `README.md` file in English at the root of the project.
+- [ ] The README must comprehensively document the following aspects:
+  - **Title & Overview**: "Navina Onboarding Platform" - A high-performance, real-time employee onboarding orchestration engine.
+  - **Core Architecture**: Flutter Web, Supabase (live database + Realtime Postgres subscriptions), and Riverpod 3.x (AsyncNotifier/Notifier) for reactive state management.
+  - **Design System (Execution Engine Paradigm)**: Rejection of generic social media UI in favor of a zero-elevation, geometric interface (BorderRadius.zero), Corporate Blue (`#0A66C2`) and white palette, designed for high-density enterprise workflows.
+  - **Key Features**: 
+    - HR Dashboard: Dynamic task generation, multi-choice entity selection, staff scheduling with automatic robust database fallbacks.
+    - Employee View: Split layout ('My Schedule' for chronological meetings and 'My Action Items' with Red/Green dynamic hardware tracking indicators).
+  - **AI Integration**: Live Google Gemini (`gemini-1.5-flash`) integration acting as a context-aware Assistant, using real-time RAG (Retrieval-Augmented Generation) by injecting the employee's Supabase tasks directly into the system prompt.
+  - **Code Quality**: Strict zero-comments rule (`//` or `/* */`), and 100% clean `flutter analyze` compilation.
+  - **Getting Started**: Provide the terminal command to run the application with the injected API key: `flutter run -d chrome --dart-define=GEMINI_API_KEY=YOUR_ACTUAL_API_KEY`.
+- [ ] Write the file and reply confirming the README is generated.

@@ -54,14 +54,16 @@ class _HrDashboardScreenState extends ConsumerState<HrDashboardScreen> {
     final staff = await showDialog<String>(
       context: context,
       builder: (ctx) => Dialog(
-        shape: const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Container(
-              color: _blue,
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+            ClipRRect(
+              borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
+              child: Container(
+                color: _blue,
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
               child: const Text(
                 'Select Staff Member',
                 style: TextStyle(
@@ -70,6 +72,7 @@ class _HrDashboardScreenState extends ConsumerState<HrDashboardScreen> {
                   fontWeight: FontWeight.w700,
                   letterSpacing: 0.4,
                 ),
+              ),
               ),
             ),
             ...mockStaff.map(
@@ -100,8 +103,8 @@ class _HrDashboardScreenState extends ConsumerState<HrDashboardScreen> {
               onPressed: () => Navigator.of(ctx).pop(),
               style: TextButton.styleFrom(
                 foregroundColor: _blue,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.zero,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
                 ),
               ),
               child: const Padding(
@@ -124,7 +127,9 @@ class _HrDashboardScreenState extends ConsumerState<HrDashboardScreen> {
       builder: (ctx, child) => Theme(
         data: Theme.of(ctx).copyWith(
           dialogTheme: const DialogThemeData(
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(16)),
+            ),
           ),
         ),
         child: child!,
@@ -139,7 +144,9 @@ class _HrDashboardScreenState extends ConsumerState<HrDashboardScreen> {
       builder: (ctx, child) => Theme(
         data: Theme.of(ctx).copyWith(
           dialogTheme: const DialogThemeData(
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(16)),
+            ),
           ),
         ),
         child: child!,
@@ -230,7 +237,7 @@ class _HrDashboardScreenState extends ConsumerState<HrDashboardScreen> {
                 ),
                 decoration: BoxDecoration(
                   color: isSelected ? _chipSelectedBg : _chipUnselectedBg,
-                  borderRadius: BorderRadius.zero,
+                  borderRadius: BorderRadius.circular(20),
                   border: Border.all(color: _blue, width: 1),
                 ),
                 child: Text(
@@ -283,7 +290,7 @@ class _HrDashboardScreenState extends ConsumerState<HrDashboardScreen> {
                 ),
                 decoration: BoxDecoration(
                   color: isSelected ? _chipSelectedBg : _chipUnselectedBg,
-                  borderRadius: BorderRadius.zero,
+                  borderRadius: BorderRadius.circular(20),
                   border: Border.all(color: _blue, width: 1),
                 ),
                 child: Text(
@@ -328,8 +335,8 @@ class _HrDashboardScreenState extends ConsumerState<HrDashboardScreen> {
           style: OutlinedButton.styleFrom(
             foregroundColor: _blue,
             side: const BorderSide(color: _blue, width: 1.5),
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.zero,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
             ),
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
             elevation: 0,
@@ -352,7 +359,7 @@ class _HrDashboardScreenState extends ConsumerState<HrDashboardScreen> {
               decoration: BoxDecoration(
                 color: _chipUnselectedBg,
                 border: Border.all(color: _blue, width: 1),
-                borderRadius: BorderRadius.zero,
+                borderRadius: BorderRadius.circular(12),
               ),
               child: Row(
                 children: [
@@ -441,8 +448,8 @@ class _HrDashboardScreenState extends ConsumerState<HrDashboardScreen> {
                   style: OutlinedButton.styleFrom(
                     foregroundColor: _blue,
                     side: const BorderSide(color: _blue, width: 1.5),
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.zero,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
                     ),
                     padding: const EdgeInsets.symmetric(
                       horizontal: 20,
@@ -473,8 +480,8 @@ class _HrDashboardScreenState extends ConsumerState<HrDashboardScreen> {
                   style: OutlinedButton.styleFrom(
                     foregroundColor: _blue,
                     side: const BorderSide(color: _blue, width: 1.5),
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.zero,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
                     ),
                     padding: const EdgeInsets.symmetric(
                       horizontal: 20,
@@ -555,7 +562,7 @@ class _HrDashboardScreenState extends ConsumerState<HrDashboardScreen> {
                       crossAxisCount: crossAxisCount,
                       crossAxisSpacing: 16,
                       mainAxisSpacing: 16,
-                      childAspectRatio: 1.1,
+                      mainAxisExtent: 190,
                     ),
                     itemBuilder: (context, index) {
                       return EmployeeCard(employee: employees[index]);

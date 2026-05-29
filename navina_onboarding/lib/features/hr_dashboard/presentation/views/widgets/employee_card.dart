@@ -30,13 +30,13 @@ class EmployeeCard extends ConsumerWidget {
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.zero,
+          borderRadius: BorderRadius.circular(16),
           border: Border.all(color: _blue, width: 1),
           boxShadow: [
             BoxShadow(
-              color: _blue.withValues(alpha: 0.08),
-              blurRadius: 6,
-              offset: const Offset(0, 2),
+              color: _blue.withValues(alpha: 0.12),
+              blurRadius: 14,
+              offset: const Offset(0, 4),
             ),
           ],
         ),
@@ -71,9 +71,9 @@ class EmployeeCard extends ConsumerWidget {
             const SizedBox(height: 6),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 color: _blue,
-                borderRadius: BorderRadius.zero,
+                borderRadius: BorderRadius.circular(20),
               ),
               child: Text(
                 employee.role.toUpperCase(),
@@ -159,7 +159,7 @@ class EmployeeCard extends ConsumerWidget {
                       const SizedBox(height: 4),
                       LinearProgressIndicator(
                         value: progress,
-                        borderRadius: BorderRadius.zero,
+                        borderRadius: BorderRadius.circular(6),
                         color: _blue,
                         backgroundColor: _lightGrey,
                         minHeight: 4,
